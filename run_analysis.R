@@ -19,7 +19,7 @@ names(df) <- c("subject", "activity", as.character(features[[2]]))
 df <- df[, !duplicated(colnames(df))]
 
 # To name descriptive our activities...
-activity_labels <- (read.table("activity_labels.txt"))[[2]]	
+activity_labels <- (read.table("UCI HAR Dataset/activity_labels.txt"))[[2]]	
 df$activity = as.factor(df$activity)
 levels(df$activity) <- activity_labels
 

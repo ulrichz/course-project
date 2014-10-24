@@ -2,13 +2,19 @@ course-project
 ==============
 
 The code in file "run_analysis.R" reads the "Human Activity Recognition Using Smartphones Dataset" from
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip, extracted to the current working directory. 
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip, extracted to the current working directory. Details about the data are provided in the containing README.txt.
 
-The aim is to produce a tidy dataset with the average of each variable for each activity and each subject. Details about the data are provided in the containing README.txt.
+In order to produce a tidy dataset with the average of each mean- and standard-derivation-variable for each activity and each subject, the script 
+- reads training and test data for merging
+- reads subject ids
+- reads activity labels
+- adds descriptive column names
+
+
 
 Code-Book of tidy data set
 ----------------
-After executing the code described above, the file tidydata.txt contains a table of 180 datasets and 81 columns: 
+After executing the code described above, the file tidy_dataset.txt contains a table of 180 datasets and 81 columns: 
 
 Columns:
 - activity: Type of activity (WALKING, WALKING_UPSTAIRS...)
