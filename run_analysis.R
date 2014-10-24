@@ -1,14 +1,16 @@
-setwd("~/coursera/datascience/gettingandcleaningdata/project/UCI HAR Dataset/")
+
+
+# Read data
 
 df <- rbind(
 	cbind(
-		read.table("test/subject_test.txt"), 
-		read.table("test/y_test.txt"),
-		read.table("test/X_test.txt")),
+		read.table("UCI HAR Dataset/test/subject_test.txt"), 
+		read.table("UCI HAR Dataset/test/y_test.txt"),
+		read.table("UCI HAR Dataset/test/X_test.txt")),
 	cbind(
-		read.table("train/subject_train.txt"), 
-		read.table("train/y_train.txt"),
-		read.table("train/X_train.txt")))
+		read.table("UCI HAR Dataset/train/subject_train.txt"), 
+		read.table("UCI HAR Dataset/train/y_train.txt"),
+		read.table("UCI HAR Dataset/train/X_train.txt")))
 		
 # Add descriptive names
 names(df) <- c("subject", "activity", as.character(features[[2]]))
@@ -26,7 +28,8 @@ tbl <- tbl_df(df)
 # Select only mean and standard derivations 
 tbl_mean_std <- select(tbl, c(1,2,grep("mean|std", colnames(tbl))))
 
-tbl_mean_std %>%
+tidydata <- tbl_mean_std %>%
 	group_by(activity, subject) %>%
-	summarise_each(funs(mean), -(1:2)) %>%
-	write.table("../tidy_dataset.txt", row.names=FALSE)
+	summarise_each(funs(mean), -(1:2))
+	
+write.table(tidydata, "tidy_dataset.txt", row.names=FALSE)
