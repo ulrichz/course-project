@@ -1,4 +1,4 @@
-
+library(dplyr)
 
 # Read data
 
@@ -11,6 +11,9 @@ df <- rbind(
 		read.table("UCI HAR Dataset/train/subject_train.txt"), 
 		read.table("UCI HAR Dataset/train/y_train.txt"),
 		read.table("UCI HAR Dataset/train/X_train.txt")))
+
+# Read features
+features <- read.table("UCI HAR Dataset/features.txt")
 		
 # Add descriptive names
 names(df) <- c("subject", "activity", as.character(features[[2]]))
